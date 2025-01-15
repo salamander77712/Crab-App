@@ -32,7 +32,7 @@ function catchCrabs(){
 
 <template>
 <button @click="catchCrabs">Catch Crabs</button>
-<br>
+<ProgressBar/>
 <p>{{ crabCatchMessage }}</p>
 </template>
 

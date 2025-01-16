@@ -11,24 +11,24 @@ let progressState:Ref = ref("initial");
 function resetTimer(){
     canCatch = true;
     progressState.value = "initial";
+    let crabPower:number = Math.random();
+    if(crabPower >= criticalSuccessMin){
+        crabs.value += criticalSuccessValue;
+        crabCatchMessage.value = "You caught " + criticalSuccessValue + " crabs"
+    }
+    else if(crabPower >= sucessMin){
+        crabs.value += successValue;
+        crabCatchMessage.value = "You caught " + successValue + " crabs"
+    }
+    else{
+        crabCatchMessage.value = "You failed to catch any crabs..."
+    }
 }
 function catchCrabs(){
     if(canCatch){
         canCatch = false;
         setTimeout(resetTimer, coolDownTime)
         progressState.value = "running";
-        let crabPower:number = Math.random();
-        if(crabPower >= criticalSuccessMin){
-            crabs.value += criticalSuccessValue;
-            crabCatchMessage.value = "You caught " + criticalSuccessValue + " crabs"
-        }
-        else if(crabPower >= sucessMin){
-            crabs.value += successValue;
-            crabCatchMessage.value = "You caught " + successValue + " crabs"
-        }
-        else{
-            crabCatchMessage.value = "You failed to catch any crabs..."
-        }
     }
 }
 </script>
@@ -42,5 +42,10 @@ function catchCrabs(){
 <style scoped>
 div {
     width: 100px;
+}
+button {
+    border-radius: 15px;
+    margin-bottom: 5px;;
+    border-width: 1px;
 }
 </style>

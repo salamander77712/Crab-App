@@ -15,6 +15,8 @@ div {
 }
 div.outer {
     border-style: solid;
+    border-width: 1px;
+    background-color: white;
 }
 @keyframes progress {
     from {width: 0%;}

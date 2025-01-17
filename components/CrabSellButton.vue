@@ -1,11 +1,11 @@
 <script setup lang="ts">
 const crabs:Ref = useState('crabs');
 const money:Ref = useState('money');
-let sellPrice:Ref = ref(0.5);
 const minPrice:number = 0.5;
 const maxPrice:number = 1.5;
-const maxChange:number = 0.1;
+const maxChange:number = 0.03;
 const priceChangeInterval:number = 1000;
+let sellPrice:Ref = ref(minPrice);
 function changePrice(){
     sellPrice.value += (Math.random() * 2 * maxChange) - maxChange;
     if(sellPrice.value < minPrice){

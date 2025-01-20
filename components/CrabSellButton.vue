@@ -14,7 +14,6 @@ function changePrice(){
     else if(sellPrice.value > maxPrice){
         sellPrice.value = maxPrice;
     }
-    console.log(sellPrice.value)
 }
 onMounted(()=> setInterval(changePrice, priceChangeInterval));
 function sellCrab(){

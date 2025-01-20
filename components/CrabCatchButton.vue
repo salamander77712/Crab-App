@@ -14,7 +14,7 @@ function resetTimer(){
     let crabPower:number = Math.random();
     if(crabPower >= criticalSuccessMin){
         crabs.value += criticalSuccessValue;
-        crabCatchMessage.value = "You caught " + criticalSuccessValue + " crabs"
+        crabCatchMessage.value = "You caught " + criticalSuccessValue + " crabs!"
     }
     else if(crabPower >= sucessMin){
         crabs.value += successValue;

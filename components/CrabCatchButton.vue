@@ -35,7 +35,7 @@ function catchCrabs(){
 
 <template>
 <button @click="catchCrabs">Catch Crabs</button>
-<div><ProgressBar :animationState="progressState"/></div>
+<div><ProgressBar :animation-state="progressState" :animation-time="coolDownTime"/></div>
 <p>{{ crabCatchMessage }}</p>
 </template>
 

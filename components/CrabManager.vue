@@ -39,6 +39,7 @@ watch(
 </div>
 <div v-if="breedingUnlocked" class="section animate-in">
     <h2>Crab Breeding</h2>
+    <CrabBreeding />
 </div>
 </template>
 

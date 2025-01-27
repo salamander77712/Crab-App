@@ -6,9 +6,4 @@
 </template>
 
 <style scoped>
-button {
-    border-radius: 15px;
-    margin-bottom: 5px;;
-    border-width: 1px;
-}
 </style>

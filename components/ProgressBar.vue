@@ -1,7 +1,18 @@
 <script setup lang="ts">
-defineProps({
-  animationState: String,
+const props = defineProps({
+  animationState: {
+    type: String,
+    required: true
+  },
+  animationTime: {
+    type: Number,
+    required: true
+    }
 })
+const cssTime = computed(() => {
+    let output:string = (props.animationTime / 1000) + 's'
+    return output;
+    })
 </script>
 
 <template>
@@ -28,7 +39,8 @@ div.initial {
 div.running {
     background-color: blue;
     animation-name: progress;
-    animation-duration: 1s;
+    animation-duration: v-bind(cssTime);
     animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 </style>

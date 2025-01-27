@@ -1,16 +1,8 @@
 <script setup lang="ts">
-const money:Ref = useState('money');
-const breedingUnlocked:Ref = useState('breedingUnlocked');
-function unlockBreeding () {
-    if(money.value >= 5){
-        breedingUnlocked.value = true;
-        money.value -= 5;
-    }
-}
 </script>
 
 <template>
-    <button v-if="!breedingUnlocked" @click="unlockBreeding">Unlock Crab Breeding ($5)</button>
+    <UnlockButton description="Unlock Crab Breeding" :cost=5 unlock-state="breedingUnlocked"/>
 </template>
 
 <style scoped>

@@ -1,10 +1,12 @@
 <script setup lang="ts">
-const crabs:Ref = useState('crabs')
+const crabs:Ref = useState('crabs');
+const catchingPower:Ref = useState('catchingPower');
 const coolDownTime:number = 1000;
 let canCatch:boolean = true;
 let crabCatchMessage:Ref = ref("Go catch some crabs!")
-const successValue:number = 1;
-const criticalSuccessValue:number = 3;
+const criticalPower = computed( () => {
+    return catchingPower.value * 3;
+});
 const sucessMin:number = .3;
 const criticalSuccessMin:number = .95;
 let progressState:Ref = ref("initial");
@@ -13,12 +15,12 @@ function resetTimer(){
     progressState.value = "initial";
     let crabPower:number = Math.random();
     if(crabPower >= criticalSuccessMin){
-        crabs.value += criticalSuccessValue;
-        crabCatchMessage.value = "You caught " + criticalSuccessValue + " crabs!"
+        crabs.value += criticalPower.value;
+        crabCatchMessage.value = "You caught " + criticalPower.value + " crabs!"
     }
     else if(crabPower >= sucessMin){
-        crabs.value += successValue;
-        crabCatchMessage.value = "You caught " + successValue + " crabs"
+        crabs.value += catchingPower.value;
+        crabCatchMessage.value = "You caught " + catchingPower.value + " crabs"
     }
     else{
         crabCatchMessage.value = "You failed to catch any crabs..."

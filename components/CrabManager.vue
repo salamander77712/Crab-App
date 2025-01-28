@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const crabs:Ref = useState('crabs', () => 0);
 const money:Ref = useState('money', () => 0);
+useState('catchingPower', () => 1);
 let caughtCrab:boolean = false;
 let madeMoney:boolean = false;
 const breedingUnlocked:Ref = useState('breedingUnlocked', () => false);
@@ -52,8 +53,7 @@ div.section {
     width: 15%;
     border-radius: 25px;
     background-color: lightblue;
-    height: 180px;
-    margin-right: 10px;
+    margin: 10px;
     padding: 10px;
 }
 @keyframes fade-in{
@@ -63,5 +63,10 @@ div.section {
 .animate-in {
     animation-name: fade-in;
     animation-duration: 1s;
+}
+@media screen and (max-width: 1000px) {
+    div.section {
+        width: 100%;
+    }
 }
 </style>

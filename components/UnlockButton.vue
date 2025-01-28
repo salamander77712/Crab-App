@@ -14,16 +14,16 @@ const props = defineProps({
     required: true}
 })
 const unlockVar:Ref = useState(props.unlockState);
-function unlockBreeding () {
+function unlock () {
     if(money.value >= props.cost){
         unlockVar.value = true;
-        money.value -= 5;
+        money.value -= props.cost;
     }
 }
 </script>
 
 <template>
-    <button v-if="!unlockVar" @click="unlockBreeding">{{ description }} (${{ cost }})</button>
+    <button v-if="!unlockVar" @click="unlock">{{ description }} (${{ cost }})</button>
 </template>
 
 <style scoped>
